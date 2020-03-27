@@ -27,6 +27,39 @@
 
 let lift = {
   floor: 1,
+  minFloor: 1,
   maxFloor: 16,
-  minFloor: 1
+
+  printFloor: function() {
+    console.log("лифт на " + this.floor + " этаже");
+  },
+  upOneFloor: function() {
+    if (this.floor < this.maxFloor) {
+      this.floor++;
+      this.printFloor();
+    }
+  },
+  downOneFloor: function() {
+    if (this.floor > this.minFloor) {
+      this.floor--;
+      this.printFloor();
+    }
+  },
+  toFloor: function(goToFloor) {
+    while (true) {
+      if (
+        goToFloor <= this.maxFloor &&
+        goToFloor >= this.minFloor &&
+        goToFloor !== this.floor
+      ) {
+        if (goToFloor > this.floor) {
+          this.upOneFloor();
+        } else if (goToFloor < this.floor) {
+          this.downOneFloor();
+        }
+      } else {
+        return;
+      }
+    }
+  }
 };

@@ -38,11 +38,13 @@
 // alert(fan(temp));
 
 // Exesize_5
-// let number = +prompt();
-// const num = function(n) {
-//   let arr = [];
-//   if (n < 1) for (let i = 1; i >= n; i--) arr.push(i);
-//   else for (let i = 1; i <= n; i++) arr.push(i);
-//   return arr.join(",");
-// };
-// console.log(num(number));
+let number = +prompt();
+const num = function(n) {
+  let arr = [];
+  if (typeof n != "number") {
+    return false;
+  } else if (n < 1) for (let i = 1; i >= n; i--) arr.push(i);
+  else for (let i = 1; i <= n; i++) arr.push(i);
+  return arr.join(",");
+};
+console.log(num(number));
